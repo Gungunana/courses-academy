@@ -1,0 +1,30 @@
+<div class="card text-dark border-green row courners" style="max-width: 20rem;">
+
+    <div class="card-body">
+        <div class="info-holder">
+            <div class="name">
+                <span>Name: </span><span>{{ user.name }}</span>
+            </div>
+            <div class="username">
+                <span>Username: </span><span>{{ user.username }}</span>
+            </div>  
+            <div class="isBlocked">
+                <span>Is blocked: </span><span>{{ user.isBlocked }}</span>
+            </div>   
+          </div>  
+          <div class="col-12 p-3">
+            <button class="btn btn-outline-success" 
+            (click)="onUserEdit()"
+            *ngIf="isAdmin">Edit</button>
+        
+            <button class="btn btn-outline-danger" 
+            tooltip="Delete"
+            placement="top"
+            container="body"
+            title="Delete"
+            (click)="onDeleteClicked()"
+            *ngIf="isAdmin"
+            >Delete</button>
+        </div>
+    </div>  
+  </div>

@@ -1,0 +1,16 @@
+<div class="menu-wrapper">
+  <ul class="menu-items">
+    <li class="menu-item mb-2 ml-2" *ngIf="isAdmin">
+      <a routerLink="/users/list">Users</a>
+    </li>
+    <li class="menu-item mb-2 ml-2">
+        <a routerLink="/courses/list">Courses</a>
+    </li>
+    <li class="menu-item mb-2 ml-2" *ngIf="!isLoggedIn">
+        <a routerLink="/auth/login">Login</a>
+      </li>
+    <li class="menu-item mb-2 ml-2" *ngIf="isLoggedIn">
+      <a (click)="logout()">Logout</a>
+    </li>
+  </ul>
+</div>

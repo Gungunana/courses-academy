@@ -1,0 +1,13 @@
+<div class="users-holder">
+  <div>
+      <h2 class="d-inline">Users</h2>
+      <div class="d-inline float-right" *ngIf="isAdmin">
+          <button class="btn btn-secondary mr-3 mt-2" (click)="onAddUser()">Add new user</button>
+      </div>
+  </div>
+  <div class="card-columns">
+      <div class="3" *ngFor="let user of users; let index = index">
+          <app-user-card [currentUserId]="currentUser.id" (onDelete)="onItemDeleted($event)" [user]="user"></app-user-card>
+        </div>
+  </div>  
+</div>

@@ -1,0 +1,150 @@
+{
+  "users": [
+    {
+      "id": 3,
+      "name": "Candice Casey",
+      "username": "Avis",
+      "password": "123",
+      "picture": "https://picsum.photos/200/300",
+      "isAdmin": true
+    },
+    {
+      "id": 4,
+      "name": "Magdalena Townsend",
+      "username": "Gibson",
+      "password": "123",
+      "picture": "https://picsum.photos/200/300"
+    },
+    {
+      "id": 5,
+      "name": "Martha Moody",
+      "username": "Elizabeth",
+      "password": "123",
+      "isBlocked": true
+    },
+    {
+      "name": "Spasko 2",
+      "username": "SPas",
+      "password": "az",
+      "picture": "https://picsum.photos/200/300",
+      "id": 6
+    },
+    {
+      "id": 8,
+      "name": "Welch Cash",
+      "username": "Green",
+      "password": "123",
+      "isBlocked": false,
+      "role": "admin"
+    },
+    {
+      "id": 9,
+      "name": "Test Testov",
+      "username": "test",
+      "password": "test1",
+      "picture": "https://picsum.photos/200/300"
+    },
+    {
+      "id": 10,
+      "name": "test",
+      "username": "test",
+      "password": "test",
+      "isBlocked": true
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "title": "labore",
+      "description": "exercitation tempor aliqua reprehenderit fugiat tempor dolor voluptate nostrud deserunt",
+      "assignedUsers": [
+        {
+          "name": "Candice Casey",
+          "id": 3
+        },
+        {
+          "name": "Welch Cash",
+          "id": 8
+        },
+        {
+          "name": "gsdfgdsf",
+          "id": 7
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "asdgdf",
+      "description": "Sdfhsfdgfghkjfghjk fhjk gh jk ghjk fghjk fhjSdfhsfdgfghkjfghjk fhjk gh jk ghjk fghjk fhjSdfhsfdgfghkjfghjk fhjk gh jk ghjk fghjk fhjSdfhsfdgfghkjfghjk fhjk gh jk ghjk fghjk fhj",
+      "assignedUsers": [
+        {
+          "name": "Welch Cash",
+          "id": 8
+        },
+        {
+          "name": "gsdfgdsf",
+          "id": 7
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "asfgsdfg",
+      "description": "sdgfhfdg",
+      "assignedUsers": [
+        {
+          "name": "Welch Cash",
+          "id": 8
+        },
+        {
+          "name": "gsdfgdsf",
+          "id": 7
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "agfg",
+      "description": "sdfghdf",
+      "assignedUsers": [
+        {
+          "name": "Welch Cash",
+          "id": 8
+        },
+        {
+          "name": "test",
+          "id": 10
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "asgdfghs",
+      "description": "dghsdfghdfg",
+      "assignedUsers": []
+    },
+    {
+      "id": 8,
+      "title": "asdfa",
+      "description": "sdfasdfasd",
+      "assignedUsers": [
+        {
+          "name": "Welch Cash",
+          "id": 8
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "ghg",
+      "description": "jhgkghj",
+      "assignedUsers": []
+    },
+    {
+      "id": 10,
+      "title": "afadfg",
+      "description": "sdfgdfgd",
+      "assignedUsers": []
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+<div class="card text-dark border-green row courners" style="max-width: 20rem;">
+
+    <div class="card-body">
+    <h4 class="card-title">{{ course.title }}</h4>
+    <p class="col-12 card-text">{{ course.description }}</p>
+    <p class="col-12 ard-text"><strong>Rating: </strong> {{ course.rating }}</p>
+   
+    <div class="col-12">
+        <strong>Participants:</strong>
+        <div *ngFor="let user of course.assignedUsers">
+          {{ user.name }}
+        </div>
+    </div>
+
+    <!-- Links -->
+    <!-- <a href="#" class="card-link">Sun Gone</a>
+    <a href="#" class="card-link">Still Gone</a> -->
+    <div class="col-12 p-3">
+        <button *ngIf="isLoggedIn && canJoin"
+        class="btn btn-outline-primary"
+        title="Join"
+        (click)="onJoinClick()">Join</button>
+    
+        <button *ngIf="isAdmin"
+        class="btn btn-outline-success"
+        title="Edit"
+        (click)="onEditClick()">Edit</button>
+    
+        <button *ngIf="isAdmin"
+        class="btn btn-outline-danger"
+        title="Delete"
+        (click)="onDeleteClick()">Delete</button>
+    </div>
+    
+  </div>
+
+</div>
