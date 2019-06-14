@@ -3,7 +3,10 @@
     <div class="card-body">
     <h4 class="card-title">{{ course.title }}</h4>
     <p class="col-12 card-text">{{ course.description }}</p>
-    <p class="col-12 ard-text"><strong>Rating: </strong> {{ course.rating }}</p>
+    <p class="col-12 ard-text" *ngIf="isLoggedIn"><strong>Rating: </strong> 
+      <span class="fa fa-star checked count-" *ngFor="let score of loggedUserScore; let index = index" (click)="onRateClick(index + 1)"></span>
+      <span class="fa fa-star count-" *ngFor="let score of rest; let index = index" (click)="onRateClick(loggedUserScoreLen + index + 1)"></span>
+    </p>
    
     <div class="col-12">
         <strong>Participants:</strong>
@@ -12,9 +15,6 @@
         </div>
     </div>
 
-    <!-- Links -->
-    <!-- <a href="#" class="card-link">Sun Gone</a>
-    <a href="#" class="card-link">Still Gone</a> -->
     <div class="col-12 p-3">
         <button *ngIf="isLoggedIn && canJoin"
         class="btn btn-outline-primary"
@@ -30,8 +30,6 @@
         class="btn btn-outline-danger"
         title="Delete"
         (click)="onDeleteClick()">Delete</button>
-    </div>
-    
+    </div> 
   </div>
-
 </div>

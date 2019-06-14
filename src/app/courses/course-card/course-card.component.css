@@ -1,4 +1,8 @@
 .courners {
     border-radius: 15px;
     background: rgba(51, 48, 47, 0.1);
-  }
+}
+
+.checked {
+  color: orange;
+}

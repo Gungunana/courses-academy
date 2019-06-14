@@ -51,7 +51,6 @@ export class AddUserComponent implements OnInit {
 
     this.usersService.addNewUser(this.userForm.value)
     .subscribe(() => {
-      console.log('USER CREATED');
       this.router.navigateByUrl('users/list');
     })
   }

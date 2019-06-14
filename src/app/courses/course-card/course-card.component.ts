@@ -4,6 +4,8 @@ import AuthService from 'src/app/auth/auth.service';
 import { Router } from '@angular/router';
 import CourseInterface from '../models/course.model';
 import AssignedUserInterface from '../models/assignedUser.model';
+import UserScoreInterface from '../models/user.score.model';
+import UserInterface from 'src/app/users/models/user.model';
 
 @Component({
   selector: 'app-course-card',
@@ -17,6 +19,11 @@ export class CourseCardComponent implements OnInit {
 
   isLoggedIn: boolean = false;
   isAdmin: boolean;
+  loggedUserScore: number[];
+  rest: number[];
+  loggedUserScoreLen: number;
+  selectedScore: number;
+  loggedUser: UserInterface
 
   constructor(private coursesService: CoursesService,
               private authService: AuthService,
@@ -24,9 +31,27 @@ export class CourseCardComponent implements OnInit {
 
                 this.isLoggedIn = this.authService.isLoggedIn();
                 this.isAdmin = this.authService.isAdmin();
+                this.loggedUser = this.authService.getLoggedUser();
               }
 
   ngOnInit() {
+
+    if(this.course.userScores && this.loggedUser){
+
+      var asd = this.course.userScores.find(x => x.userId == this.loggedUser.id);
+
+      if(asd){
+        var result = asd.rating;
+        this.loggedUserScore = Array(result).fill(1)
+        this.rest = Array(5 - result).fill(1)
+        this.loggedUserScoreLen = this.loggedUserScore.length
+      }
+
+      if(!this.rest){
+        this.rest = Array(5).fill(1)
+        this.loggedUserScoreLen = 0
+      }
+    }
   }
 
   onDeleteClick(): void {
@@ -37,9 +62,26 @@ export class CourseCardComponent implements OnInit {
     this.router.navigate(['courses/add-course', this.course.id]);
   }
 
+  onRateClick(rating: number): void {
+    var score = this.course.userScores.find(x => x.userId = this.loggedUser.id)
+
+    if(!score){
+      var score: UserScoreInterface = {
+        userId: this.loggedUser.id,
+        rating: rating
+      }
+      this.course.userScores.push(score)
+    }
+    score.rating = rating
+
+    console.log(score.rating)
+    
+    this.coursesService.add(this.course).subscribe(() => {
+      this.router.navigateByUrl('courses/list');
+    })
+  }
+
   onJoinClick() {
-    // console.log(sessionStorage)
-    // console.log(this.course)
     var loggedUser = this.authService.getLoggedUser();
 
     if (this.course.assignedUsers.findIndex(u => u.id === loggedUser.id) !== -1) 
